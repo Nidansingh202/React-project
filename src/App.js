@@ -1,25 +1,48 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+import React, { useState } from 'react';
+
+function RegistrationForm() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add registration logic here
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h2>Register</h2>
+      <Dasbord onSubmit={handleSubmit}>
+        <label>Email:</label>
+        <input type="email" value={email} onChange={handleEmailChange} required />
+        <br />
+        <label>Password:</label>
+        <input type="password" value={password} onChange={handlePasswordChange} required />
+        <br />
+        <label>Name:</label>
+        <input type="text" value={username} onChange={handleNameChange} required />
+        <br />
+        <button type="submit">Register</button>
+        <button type="reset passward">reset</button>
+
+      </Dasbord>
     </div>
   );
 }
 
-export default App;
+export default RegistrationForm;
